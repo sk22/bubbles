@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Shooter</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      iframe {
+        width: 800px;
+        height: 600px;
+        border: none;
+      }
+
+      @media (min-aspect-ratio: 800 / 600) {
+        iframe {
+          height: 100%;
+          width: calc(100vh * 800 / 600);
+        }
+      }
+
+      @media (max-aspect-ratio: 800 / 600) {
+        iframe {
+          width: 100%;
+          height: calc(100vw * 600 / 800);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://cdn.shooter-bubble.com/games/bubble-shooter/"></iframe>
+  </body>
+</html>
