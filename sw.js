@@ -64,20 +64,22 @@ const ASSETS = [
   'assets/sound/4__sdown.mp3',
   'assets/sound/5__sgo.mp3',
   'js/src/game.js',
-  'js/phaser.min.js'
+  'js/phaser.min.js',
+  'index.html',
+  'game.html'
 ]
 
 const CACHE = 'bubble-shooter'
 
 self.addEventListener('install', event => {
-	console.log('The service worker is being installed.')
+	console.debug('The service worker is being installed.')
 	event.waitUntil(precache())
 })
 
 self.addEventListener('fetch', event => {
-	console.log('The service worker is serving the asset.')
+	console.debug('The service worker is serving the asset.')
 	event.respondWith(fromCache(event.request))
-	evt.waitUntil(update(event.request))
+	event.waitUntil(update(event.request))
 })
 
 async function precache() {
