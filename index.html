@@ -45,6 +45,11 @@
     </style>
   </head>
   <body>
-    <iframe src="https://cdn.shooter-bubble.com/games/bubble-shooter/"></iframe>
+    <iframe src="game.html"></iframe>
+    <script>
+      navigator.serviceWorker.register('sw.js', {
+        scope: './controlled'
+      });
+    </script>
   </body>
 </html>

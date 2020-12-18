@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex,nofollow" />
+	<link rel="canonical" href="https://www.shooter-bubble.com/">
+	
+	<link rel="preload" as="script" href="https://code.jquery.com/jquery-3.4.1.min.js" />
+	<link rel="preload" as="script" href="js/phaser.min.js" />
+	<link rel="preload" as="script" href="js/src/game.js" />
+
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<style>
+		html {
+			/* Prevent scrollbars from causing a resize feedback loop. */
+			overflow: hidden;
+			padding: 0;
+			margin: 0;
+			touch-action: none;
+			background-color: transparent;
+		}
+
+		body {
+			overflow: hidden;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+			touch-action: none;
+			background-color: transparent;
+
+		}
+		#content {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			padding:0;
+			box-shadow: none;
+			border: 0 !important;
+			touch-action: none;
+		}
+
+		object,
+		#content canvas {
+			box-shadow: none;
+			border: 0 !important;
+			margin: 0 !important;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="content"></div>
+	<script>
+		function setHash( ) {
+			$.post( "/bubble-shooter/highscores/init/" ).done(function( data ) {
+				document.highscoreHash = data.hash;
+			});
+		}
+		function openHighscoreForm(newScore, newHash) {
+			$.post( "https://www.shooter-bubble.com/bubble-shooter/highscores/validate/", { score: newScore, hash: newHash } ).done(function( data ) {
+				window.parent.goto(data.url);
+			});
+		}
+	</script>
+	<script src="js/phaser.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous" onload="setHash();"></script> -->
+	<script src="js/src/game.js"></script>
+
+</body>
+</html>
