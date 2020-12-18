@@ -32,15 +32,15 @@
 
       @media (min-aspect-ratio: 800 / 600) {
         iframe {
-          height: 100%;
-          width: calc(100vh * 800 / 600);
+          height: 96%;
+          width: calc(96vh * 800 / 600);
         }
       }
 
       @media (max-aspect-ratio: 800 / 600) {
         iframe {
-          width: 100%;
-          height: calc(100vw * 600 / 800);
+          width: 96%;
+          height: calc(96vw * 600 / 800);
         }
       }
     </style>
@@ -48,7 +48,16 @@
   <body>
     <iframe src="game.html"></iframe>
     <script>
-      navigator.serviceWorker.register('sw.js');
+      navigator.serviceWorker.register('sw.js')
+      document.body.addEventListener('dblclick', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          }
+        }
+      })
     </script>
   </body>
 </html>
