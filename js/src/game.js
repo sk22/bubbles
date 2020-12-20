@@ -1435,7 +1435,8 @@ var Cannon = /** @class */ (function () {
 		this.clickableArea.endFill();
 		this.clickableArea.alpha = 0.1;
 		this.clickableArea.inputEnabled = true;
-		this.clickableArea.events.onInputDown.add(this.cannonFired, this);
+		// EDITED: onInputDown -> onInputUp
+		this.clickableArea.events.onInputUp.add(this.cannonFired, this);
 	}
 	Cannon.prototype.cannonFired = function () {
 		if (Cannon.addNewRowInProgress) {
